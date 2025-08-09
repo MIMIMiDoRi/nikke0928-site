@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9月28日勝利の女神:NIKKE併せ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Smooch Sans', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 装飾的なX印 */
+        .x-decoration {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .x-large {
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .x-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+            letter-spacing: 10px;
+            transform: rotate(45deg);
+            color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            position: relative;
+            border-bottom: 3px solid #444;
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .sub-title {
+            font-size: 1.8rem;
+            color: #cccccc;
+            font-weight: 400;
+            letter-spacing: 3px;
+        }
+        
+        /* セクション共通 */
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section::before {
+            content: "× × × × ×";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            letter-spacing: 5px;
+        }
+        
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* セクション別カラー */
+        .members-section {
+            background: linear-gradient(135deg, rgba(0, 100, 200, 0.15), rgba(0, 150, 255, 0.05));
+            border-left-color: #0096ff;
+        }
+        
+        .overview-section {
+            background: linear-gradient(135deg, rgba(200, 50, 50, 0.15), rgba(255, 100, 100, 0.05));
+            border-left-color: #ff4444;
+        }
+        
+        .schedule-section {
+            background: linear-gradient(135deg, rgba(200, 200, 0, 0.15), rgba(255, 255, 100, 0.05));
+            border-left-color: #ffdd00;
+        }
+        
+        .location-section {
+            background: linear-gradient(135deg, rgba(0, 200, 200, 0.15), rgba(100, 255, 255, 0.05));
+            border-left-color: #00dddd;
+        }
+        
+        .questions-section {
+            background: linear-gradient(135deg, rgba(100, 100, 100, 0.15), rgba(150, 150, 150, 0.05));
+            border-left-color: #888888;
+        }
+        
+        /* メンバーリスト */
+        .member-list {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .member-item {
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .member-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 0 15px rgba(255,255,255,0.1);
+        }
+        
+        .member-item::before {
+            content: "▶";
+            position: absolute;
+            left: -15px;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .twitter-link {
+            color: #1da1f2;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .twitter-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #1da1f2;
+        }
+        
+        /* メンバー個別カラー */
+        .commander { background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(200,200,200,0.05)); }
+        .rapi { background: linear-gradient(90deg, rgba(255,100,100,0.2), rgba(255,150,150,0.05)); }
+        .anis { background: linear-gradient(90deg, rgba(255,255,100,0.2), rgba(255,255,150,0.05)); }
+        .neon { background: linear-gradient(90deg, rgba(100,255,255,0.2), rgba(150,255,255,0.05)); }
+        .marian { background: linear-gradient(90deg, rgba(100,150,255,0.2), rgba(150,200,255,0.05)); }
+        .camera { background: linear-gradient(90deg, rgba(200,100,255,0.2), rgba(220,150,255,0.05)); }
+        
+        /* 概要リスト */
+        .overview-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .overview-item {
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid #ff4444;
+            border-radius: 3px;
+        }
+        
+        .overview-label {
+            font-weight: 700;
+            color: #ff8888;
+        }
+        
+        .map-link {
+            color: #ff6666;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .map-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff6666;
+        }
+        
+        /* タイムテーブル */
+        .timetable {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .time-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255,255,100,0.1);
+            border-radius: 5px;
+            border-left: 4px solid #ffdd00;
+        }
+        
+        .time {
+            font-weight: 700;
+            color: #ffdd00;
+            min-width: 150px;
+            font-size: 1.1rem;
+        }
+        
+        .activity {
+            font-size: 1.1rem;
+        }
+        
+        /* ソロ撮影テーブル */
+        .solo-schedule {
+            margin-top: 30px;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .schedule-table th {
+            background: rgba(255,255,100,0.2);
+            font-weight: 700;
+            color: #ffdd00;
+        }
+        
+        .schedule-table td {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        /* 質問セクション */
+        .question-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .question-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+        }
+        
+        .question-input:focus {
+            outline: none;
+            border-color: #888888;
+            box-shadow: 0 0 10px rgba(136,136,136,0.3);
+        }
+        
+        .submit-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #666666, #888888);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #888888, #aaaaaa);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .questions-list {
+            margin-top: 30px;
+        }
+        
+        .question-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.3);
+            border-left: 3px solid #888888;
+            border-radius: 3px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .sub-title {
+                font-size: 1.3rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .member-item {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .time-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+            
+            .time {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 装飾的なX印 -->
+    <div class="x-decoration x-large" style="top: 50px; left: 50px;">×</div>
+    <div class="x-decoration x-large" style="top: 200px; right: 80px;">×</div>
+    <div class="x-decoration x-large" style="bottom: 100px; left: 100px;">×</div>
+    <div class="x-decoration x-large" style="bottom: 300px; right: 50px;">×</div>
+    
+    <div class="container">
+        <div class="x-pattern">× × × × × × × ×</div>
+        
+        <header class="header">
+            <h1 class="main-title">9月28日勝利の女神:NIKKE併せ</h1>
+            <p class="sub-title">goddess of Victory</p>
+        </header>
+        
+        <!-- メンバーセクション -->
+        <section class="section members-section">
+            <h2>【メンバー】</h2>
+            <div class="member-list">
+                <div class="member-item commander">
+                    <span class="member-name">穂高【指揮官】</span>
+                    <a href="https://x.com/hodaka3212" class="twitter-link" target="_blank">@hodaka3212</a>
+                </div>
+                <div class="member-item rapi">
+                    <span class="member-name">やつきかい【ラピ】</span>
+                    <a href="https://x.com/ameri_tayu" class="twitter-link" target="_blank">@ameri_tayu</a>
+                </div>
+                <div class="member-item anis">
+                    <span class="member-name">千洸【アニス】</span>
+                    <a href="https://x.com/cos_id_Hiro" class="twitter-link" target="_blank">@cos_id_Hiro</a>
+                </div>
+                <div class="member-item neon">
+                    <span class="member-name">たまご兄さん【ネオン】</span>
+                    <a href="https://x.com/tamago0023" class="twitter-link" target="_blank">@tamago0023</a>
+                </div>
+                <div class="member-item marian">
+                    <span class="member-name">緑【マリアン】</span>
+                    <a href="https://x.com/midoriiro_cos" class="twitter-link" target="_blank">@midoriiro_cos</a>
+                </div>
+                <div class="member-item camera">
+                    <span class="member-name">かつや【カメラ】</span>
+                    <a href="https://x.com/D85010" class="twitter-link" target="_blank">@D85010</a>
+                </div>
+                <div class="member-item camera">
+                    <span class="member-name">Hiroki【カメラ】</span>
+                    <a href="https://x.com/dai7891" class="twitter-link" target="_blank">@dai7891</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 概要セクション -->
+        <section class="section overview-section">
+            <h2>【概要】</h2>
+            <div class="overview-list">
+                <div class="overview-item">
+                    <span class="overview-label">【日時】</span> 9月28日
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【場所】</span> 駒ヶ岳フィールド
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【時間】</span> 9:00～18:30
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【部隊】</span> COUNTERS
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【参加費】</span> なし
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【食事】</span> 昼持参
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【持ち物】</span> 侵食に負けない気持ち
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【場所詳細】</span> <a href="https://maps.app.goo.gl/8kohQ7G4xtMpXPF96" class="map-link" target="_blank">指揮官ここです</a>
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">【更衣室】</span> あります
+                </div>
+            </div>
+        </section>
+        
+        <!-- タイムテーブルセクション -->
+        <section class="section schedule-section">
+            <h2>【タイムテーブル】</h2>
+            <div class="timetable">
+                <div class="time-item">
+                    <span class="time">9:00～10:30</span>
+                    <span class="activity">着替え</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">10:30～11:00</span>
+                    <span class="activity">作戦開始（自己紹介など）</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">11:15～13:45</span>
+                    <span class="activity">ソロ撮影</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">14:00～15:00</span>
+                    <span class="activity">休憩・ごはん</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">15:00～15:45</span>
+                    <span class="activity">集合写真撮影</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">15:45～17:00</span>
+                    <span class="activity">ツーショ撮影</span>
+                </div>
+                <div class="time-item">
+                    <span class="time">17:00～18:30</span>
+                    <span class="activity">着替え・後片付け</span>
+                </div>
+            </div>
+            
+            <div class="solo-schedule">
+                <h3>【ソロ撮影の詳細スケジュール】</h3>
+                <p>一人持ち時間30分想定 (カメラ×2　被写体×5)</p>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>11:15-11:45</th>
+                            <th>11:45-12:15</th>
+                            <th>12:15-12:45</th>
+                            <th>12:45-13:15</th>
+                            <th>13:15-13:45</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>かつや📷</strong></td>
+                            <td>ラピ</td>
+                            <td>ネオン</td>
+                            <td>マリアン</td>
+                            <td>アニス</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hiroki📷</strong></td>
+                            <td>マリアン</td>
+                            <td>アニス</td>
+                            <td>ラピ</td>
+                            <td>ネオン</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Locationセクション -->
+        <section class="section location-section">
+            <h2>【Location】</h2>
+            <div class="photo-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                    </div>
+                    <div class="gallery-item">
+                        <img src="2photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                   </div>
+                    <div class="gallery-item">
+                        <img src="5photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                   </div>
+                    <div class="gallery-item">
+                        <img src="6photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                   </div>
+                    <div class="gallery-item">
+                        <img src="7photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                    </div>
+                    <div class="gallery-item">
+                        <img src="3photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+
+                    </div>
+                    <div class="gallery-item">
+                        <img src="4photo.jpg" alt="Location Photo 1" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 質問セクション -->
+        <section class="section questions-section">
+            <h2>【質問】</h2>
+            <div class="question-form">
+                <textarea 
+                    class="question-input" 
+                    placeholder="匿名で質問を書き込んでください..."
+                    id="questionInput"
+                ></textarea>
+                <button class="submit-btn" onclick="submitQuestion()">質問を投稿</button>
+            </div>
+            
+            <div class="questions-list" id="questionsList">
+                <div class="question-item">
+                    <strong>質問例:</strong> コスプレの準備で何か注意することはありますか？
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        let questions = [
+            "質問例: コスプレの準備で何か注意することはありますか？"
+        ];
+        
+        function submitQuestion() {
+            const input = document.getElementById('questionInput');
+            const questionText = input.value.trim();
+            
+            if (questionText) {
+                questions.push(questionText);
+                input.value = '';
+                updateQuestionsList();
+            }
+        }
+        
+        function updateQuestionsList() {
+            const questionsList = document.getElementById('questionsList');
+            questionsList.innerHTML = '';
+            
+            questions.forEach((question, index) => {
+                const questionItem = document.createElement('div');
+                questionItem.className = 'question-item';
+                questionItem.innerHTML = `<strong>質問 ${index + 1}:</strong> ${question}`;
+                questionsList.appendChild(questionItem);
+            });
+        }
+        
+        // エンターキーでの投稿
+        document.getElementById('questionInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.ctrlKey) {
+                submitQuestion();
+            }
+        });
+    </script>
+</body>
+</html>
